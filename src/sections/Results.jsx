@@ -1,0 +1,5 @@
+import Reveal from '../components/Reveal';
+
+const metrics = [['+47%','средний рост конверсии после редизайна'],['92/100','средний mobile performance score'],['−31%','снижение стоимости целевой заявки'],['2,4×','рост глубины просмотра сайта']];
+
+export default function Results(){return <section className="section results"><div className="container results-shell"><div className="results-copy"><span className="eyebrow">Результат в цифрах</span><h2>Дизайн должен<br/><em>работать на бизнес</em></h2><p>Красивый интерфейс — только начало. Мы отслеживаем, как люди взаимодействуют с сайтом, где принимают решение и что мешает оставить заявку.</p><ul><li>Настраиваем события и цели аналитики</li><li>Проверяем гипотезы на реальных данных</li><li>Развиваем сайт после запуска</li></ul></div><div className="metric-grid">{metrics.map((m,i)=><Reveal className="metric-card" delay={i*60} key={m[0]}><small>0{i+1}</small><strong>{m[0]}</strong><span>{m[1]}</span></Reveal>)}</div></div></section>}

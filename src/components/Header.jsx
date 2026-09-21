@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-const links = [['Услуги','services'],['Кейсы','cases'],['Процесс','process'],['Цены','pricing'],['FAQ','faq']];
+const links = [['Услуги','services'],['Ниши','industries'],['Кейсы','cases'],['Процесс','process'],['Цены','pricing']];
 
 export default function Header() {
   const [open, setOpen] = useState(false);
