@@ -1,0 +1,4 @@
+import SectionTitle from '../components/SectionTitle';
+import Reveal from '../components/Reveal';
+const steps=[['01','Анализ бизнеса','Цели, аудитория, конкуренты'],['02','Прототип','Структура и сценарии'],['03','Дизайн','Визуальная система и UI'],['04','Разработка','Чистый адаптивный код'],['05','SEO-настройка','Семантика и аналитика'],['06','Запуск','Тесты и публикация'],['07','Поддержка','Рост после релиза']];
+export default function Process(){return <section className="section process" id="process"><div className="container"><SectionTitle eyebrow="05 / Процесс" title={<>Прозрачно.<br/><em>От идеи до запуска.</em></>} /><div className="timeline">{steps.map((s,i)=><Reveal className="step" delay={i*55} key={s[0]}><span>{s[0]}</span><div><h3>{s[1]}</h3><p>{s[2]}</p></div></Reveal>)}</div></div></section>}

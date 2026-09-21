@@ -1,0 +1,10 @@
+{
+  "name": "NORTH Digital Agency",
+  "short_name": "NORTH/",
+  "description": "Разработка сайтов для бизнеса",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0b0c0b",
+  "theme_color": "#c7ff3d",
+  "icons": [{"src":"/favicon.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}]
+}

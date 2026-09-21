@@ -1,0 +1,3 @@
+export default function Footer() {
+  return <footer className="footer"><div className="container footer-grid"><div><a className="logo" href="#top">NORTH<span>/</span></a><p>Сайты с ясной стратегией<br/>и измеримым результатом.</p></div><div><span>Навигация</span><a href="#services">Услуги</a><a href="#cases">Кейсы</a><a href="#pricing">Цены</a></div><div><span>Связь</span><a href="https://t.me/barvik_8" target="_blank" rel="noreferrer">Telegram ↗</a><a href="#contact">Оставить заявку</a></div></div><div className="container footer-bottom"><small>© 2026 NORTH Digital Agency</small><a href="#top">Наверх ↑</a></div></footer>;
+}
