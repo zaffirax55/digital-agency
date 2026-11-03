@@ -323,6 +323,72 @@
 .motion-enhanced .case-study .case-insight>div,.motion-enhanced .case-study .case-tags span{opacity:1;transform:none}
 }
 
+/* v6: live code-to-design demonstration + genuine interactive responsive showcase */
+.hero-code-demo{width:min(100%,510px);margin:22px 0 0;position:relative;isolation:isolate;border:1px solid rgba(252,175,120,.29);border-radius:17px;overflow:hidden;background:linear-gradient(130deg,rgba(30,30,37,.95),rgba(16,17,23,.96));box-shadow:0 22px 65px rgba(0,0,0,.19),inset 0 1px rgba(255,255,255,.045)}
+.hero-code-demo::before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse at 95% 10%,rgba(255,163,100,.095),transparent 50%)}
+.code-demo-head{height:35px;border-bottom:1px solid rgba(255,255,255,.08);display:flex;align-items:center;gap:9px;padding:0 14px;color:#beb5b7;font-size:9px;font-weight:800;letter-spacing:.13em}
+.code-demo-head .code-dot{width:7px;height:7px;flex:0 0 7px;border-radius:50%;background:#ffad78;box-shadow:0 0 15px #ffad7870;animation:codeHeartbeat 2.3s ease-in-out infinite}
+.code-demo-head .code-demo-caption{margin-left:auto;color:#dfaa87;font-size:9px;letter-spacing:.08em}
+.code-demo-screen{position:relative;height:96px;overflow:hidden}
+.code-phase{position:absolute;inset:0;padding:12px 19px 11px;display:flex;flex-direction:column;justify-content:center;gap:6px;color:#b4b2c1;font-size:11px;font-weight:600;letter-spacing:.005em;line-height:1.25;animation:codePhase 10s linear infinite}
+.code-phase .line{white-space:nowrap;max-width:100%;overflow:hidden;display:block;font-family:ui-monospace,SFMono-Regular,Consolas,monospace;width:max-content}
+.code-phase .line:nth-child(1){animation:codeLineOne 10s steps(29,end) infinite}
+.code-phase .line:nth-child(2){animation:codeLineTwo 10s steps(29,end) infinite}
+.code-phase .line:nth-child(3){animation:codeLineThree 10s steps(30,end) infinite}
+.code-phase .n{color:#777c8b;display:inline-block;margin-right:11px}.code-phase .kw{color:#e5a6d4}.code-phase .var{color:#a9cbef}.code-phase .str{color:#ffe2ab}
+.design-phase{position:absolute;inset:0;display:flex;align-items:center;gap:17px;padding:13px 22px;opacity:0;animation:designPhase 10s ease-in-out infinite}
+.design-mini{width:92px;height:61px;flex:0 0 92px;background:linear-gradient(140deg,#ffe3ce,#e8b5a6);border-radius:8px;position:relative;overflow:hidden;box-shadow:0 6px 24px #fba67f33}
+.design-mini::before{content:"";position:absolute;inset:0 0 auto;background:#2c2529;height:9px}
+.design-mini::after{content:"";position:absolute;width:63px;height:63px;border-radius:50%;background:#ca8080;right:-28px;top:14px}
+.design-mini b{position:absolute;top:19px;left:11px;font-size:10px;color:#38262b;line-height:1.1;z-index:1;letter-spacing:-.03em}.design-mini i{position:absolute;left:11px;top:48px;width:44px;height:4px;background:#563840;border-radius:2px;z-index:1}
+.design-phase-text{display:flex;flex-direction:column;gap:4px;min-width:0}.design-phase-text strong{font-size:13px;color:#f8e9dc;font-weight:800}.design-phase-text span{font-size:10px;color:#c4b0ad;line-height:1.45}
+@keyframes codeHeartbeat{0%,100%{opacity:.65;transform:scale(.85)}50%{opacity:1;transform:scale(1.13)}}
+@keyframes codePhase{0%,47%{opacity:1;transform:translateY(0)}54%,95%{opacity:0;transform:translateY(-7px)}100%{opacity:1;transform:none}}
+@keyframes designPhase{0%,48%{opacity:0;transform:translateY(8px) scale(.96);filter:blur(5px)}58%,91%{opacity:1;transform:translateY(0) scale(1);filter:blur(0)}100%{opacity:0;transform:translateY(-5px) scale(.99);filter:blur(4px)}}
+@keyframes codeLineOne{0%{clip-path:inset(0 100% 0 0)}11%,100%{clip-path:inset(0 0 0 0)}}
+@keyframes codeLineTwo{0%,11%{clip-path:inset(0 100% 0 0)}22%,100%{clip-path:inset(0 0 0 0)}}
+@keyframes codeLineThree{0%,22%{clip-path:inset(0 100% 0 0)}35%,100%{clip-path:inset(0 0 0 0)}}
+.device-mode-control{position:absolute;z-index:12;top:18px;right:19px;display:flex;align-items:center;gap:3px;padding:4px;border:1px solid rgba(255,255,255,.25);background:rgba(18,18,23,.76);border-radius:999px;box-shadow:0 10px 35px rgba(0,0,0,.19);backdrop-filter:blur(15px);-webkit-backdrop-filter:blur(15px)}
+.device-mode-btn{appearance:none;cursor:pointer;border:1px solid transparent;background:none;color:#ddd3d1;border-radius:999px;min-height:38px;padding:6px 10px;display:flex;align-items:center;justify-content:center;gap:6px;font-size:10px;font-weight:800;letter-spacing:.01em;transition:background .22s,color .22s,box-shadow .22s,border-color .22s;white-space:nowrap}
+.device-mode-btn svg{width:15px;height:15px;display:block;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+.device-mode-btn.is-active,.device-mode-btn[aria-pressed=true]{background:#ffc398;color:#231c1c;box-shadow:0 4px 15px #0003;border-color:#f4be97}
+.device-mode-btn:focus-visible{outline:2px solid white;outline-offset:3px}
+.device-mode-btn:not(.is-active):hover{background:rgba(255,255,255,.14);color:#fff}
+.case-stage .site-frame{will-change:auto}
+.case-stage.is-phone{--phone-glow:rgba(255,175,134,.17);background-image:radial-gradient(ellipse at 50% 50%,var(--phone-glow),transparent 70%),linear-gradient(145deg,rgba(17,19,27,.96),rgba(30,25,34,.95))}
+.case-stage-status.is-phone{--phone-glow:rgba(104,152,234,.31)}
+.case-stage-bella.is-phone{--phone-glow:rgba(244,162,179,.28)}
+.case-stage-orange.is-phone{--phone-glow:rgba(253,161,98,.3)}
+.case-stage.is-phone .site-frame{width:224px;max-width:calc(100% - 12px);height:424px;aspect-ratio:auto;border:7px solid #17191f;border-radius:30px;box-shadow:0 0 0 1px #717077,0 27px 58px rgba(0,0,0,.49),0 0 50px var(--phone-glow);transform:translateY(6px) rotate(-1.5deg) !important;overflow:hidden;z-index:3}
+.case-stage.is-phone:hover .site-frame{transform:translateY(2px) rotate(0deg) !important}
+.case-stage.is-phone .site-toolbar{height:30px;min-height:30px;padding:0 10px;position:relative;justify-content:center;font-size:7.5px;letter-spacing:-.03em}
+.case-stage.is-phone .site-toolbar::before{content:"";position:absolute;top:1px;left:50%;width:55px;height:8px;transform:translateX(-50%);border-radius:0 0 9px 9px;background:#000}
+.case-stage.is-phone .site-toolbar .browser-dots,.case-stage.is-phone .site-toolbar>span:last-child{display:none}
+.case-stage.is-phone .mini-status-head{height:48px;padding:0 14px;justify-content:center}
+.case-stage.is-phone .mini-status-head b{font-size:14px}.case-stage.is-phone .mini-status-head small,.case-stage.is-phone .mini-status-head em{display:none}
+.case-stage.is-phone .mini-status-body{padding:26px 13px 12px;min-height:0}
+.case-stage.is-phone .mini-status-body small{font-size:6px;letter-spacing:.06em}
+.case-stage.is-phone .mini-status-body h3{font-size:23px;letter-spacing:-.07em;line-height:1.09}
+.case-stage.is-phone .mini-status-body p{font-size:8px;line-height:1.6;max-width:145px}
+.case-stage.is-phone .mini-status-body span{font-size:8px;padding:9px 10px;margin-top:17px}
+.case-stage.is-phone .status-tooth{font-size:88px;top:auto;bottom:8px;right:-10px;opacity:.7}
+.case-stage.is-phone .mini-status-footer{min-height:46px;font-size:6px;padding:10px;gap:5px;white-space:nowrap}.case-stage.is-phone .mini-status-footer b{font-size:16px}
+.case-stage.is-phone .bella-top{height:46px;padding:0 12px;justify-content:center}.case-stage.is-phone .bella-top>span{display:none}.case-stage.is-phone .bella-top strong{font-size:12px}
+.case-stage.is-phone .bella-screen{padding:35px 15px;flex:1}.case-stage.is-phone .bella-screen>small{font-size:6px;letter-spacing:.14em}
+.case-stage.is-phone .bella-screen h3{font-size:48px;margin-top:15px;line-height:.91;position:relative;z-index:1}
+.case-stage.is-phone .bella-screen p{font-size:9px;position:relative;z-index:1}.case-stage.is-phone .bella-screen>span{font-size:7px;padding:11px 10px;position:relative;z-index:1}
+.case-stage.is-phone .bella-circle{width:110px;right:-65px;top:auto;bottom:54px;opacity:.85}
+.case-stage.is-phone .orange-top{height:46px;padding:0 10px;justify-content:center}.case-stage.is-phone .orange-top strong{font-size:17px}.case-stage.is-phone .orange-top>span{display:none}
+.case-stage.is-phone .orange-screen{padding:40px 15px;flex:1}.case-stage.is-phone .orange-screen small{font-size:6px;letter-spacing:.08em}
+.case-stage.is-phone .orange-screen h3{font-size:27px;line-height:1.14;margin-top:25px;position:relative;z-index:1}
+.case-stage.is-phone .orange-screen p{font-size:9px;position:relative;z-index:1}.case-stage.is-phone .orange-screen>span{font-size:8px;padding:11px 13px;position:relative;z-index:1}
+.case-stage.is-phone .orange-circle{width:130px;top:auto;bottom:12px;right:-65px}
+.case-stage.is-phone .site-frame.device-changing{animation:deviceMorph .38s cubic-bezier(.21,.74,.26,1) both}
+@keyframes deviceMorph{from{opacity:.5;filter:blur(4px);scale:.93}to{opacity:1;filter:blur(0);scale:1}}
+@media(max-width:680px){.hero-code-demo{margin-top:17px}.code-demo-head{height:32px}.code-demo-screen{height:89px}.code-phase{font-size:10px;padding-inline:12px}.code-phase .n{margin-right:6px}.design-mini{width:74px;height:56px;flex-basis:74px}.design-phase{padding:10px 15px;gap:10px}.design-phase-text strong{font-size:12px}.design-phase-text span{font-size:9px}.device-mode-control{right:11px;top:10px;padding:3px}.device-mode-btn{min-height:37px;padding:6px 10px;font-size:10px}.case-stage.is-phone{min-height:480px}.case-stage.is-phone .site-frame{width:220px;height:390px;max-width:calc(100% - 18px)}.stage-tag{max-width:55%}}
+@media(max-width:360px){.hero-code-demo{border-radius:13px}.code-phase{font-size:9px;padding-inline:9px}.code-phase .n{margin-right:4px}.device-mode-btn{padding:6px 9px}.case-stage.is-phone{min-height:438px}.case-stage.is-phone .site-frame{width:196px;height:364px}.case-stage.is-phone .bella-screen h3{font-size:41px}.case-stage.is-phone .orange-screen h3{font-size:24px}}
+@media(prefers-reduced-motion:reduce){.code-demo-head .code-dot,.code-phase,.code-phase .line,.design-phase,.case-stage.is-phone .site-frame.device-changing{animation:none!important}.code-phase{display:none}.design-phase{opacity:1;filter:none;transform:none}.device-mode-btn{transition:none}}
+
 </style>
 </head>
 <body>
@@ -357,7 +423,14 @@
           <h1 class="hero-title rise" id="hero-title" data-i18n-html="heroTitle">Ваш бізнес.<br>Ваш стиль.<br><em>Мій код<span class="punct">.</span></em></h1>
           <p class="hero-description rise" data-i18n="heroDescription">Привіт, я Вадим. Самостійно створюю сучасні сайти для бізнесу: від першої ідеї до запуску. Люблю сильний дизайн, продуману структуру та увагу до деталей.</p>
           <div class="hero-actions rise"><a class="action-primary" href="#work"><span data-i18n="heroViewWork">Дивитися проєкти</span><span class="action-icon">↗</span></a><a class="action-secondary" href="https://t.me/barvik_8" rel="noopener noreferrer" target="_blank"><span data-i18n="heroTalk">Написати мені</span><span>↗</span></a></div>
-          <div class="hero-micro rise"><span><i class="micro-square"></i><strong>03</strong> <span data-i18n="heroMicro1">проєкти</span></span><span class="micro-sep"></span><span><i class="micro-square"></i><strong>1:1</strong> <span data-i18n="heroMicro2">особистий контакт</span></span></div>
+          <div class="hero-code-demo rise" role="img" aria-label="Демонстрація перетворення коду на готовий дизайн" data-v6-alt="code">
+            <div class="code-demo-head"><span class="code-dot"></span><span>LIVE BUILD / 001</span><span class="code-demo-caption" data-v6-label="scene">КОД → ДИЗАЙН</span></div>
+            <div class="code-demo-screen" aria-hidden="true">
+              <div class="code-phase"><div class="line"><span class="n">01</span><span class="kw">const</span> <span class="var">idea</span> = <span class="str">'your business'</span>;</div><div class="line"><span class="n">02</span><span class="kw">const</span> <span class="var">design</span> = build(idea);</div><div class="line"><span class="n">03</span>&lt;<span class="var">Website</span> ready={<span class="str">true</span>} /&gt;</div></div>
+              <div class="design-phase"><div class="design-mini"><b>YOUR<br>VISION.</b><i></i></div><div class="design-phase-text"><strong data-v6-label="built">Ідея стає сайтом.</strong><span data-v6-label="builtSub">Дизайн, який працює на ваш бізнес.</span></div></div>
+            </div>
+          </div>
+<div class="hero-micro rise"><span><i class="micro-square"></i><strong>03</strong> <span data-i18n="heroMicro1">проєкти</span></span><span class="micro-sep"></span><span><i class="micro-square"></i><strong>1:1</strong> <span data-i18n="heroMicro2">особистий контакт</span></span></div>
         </div>
         <div class="hero-right rise" id="portrait-area">
           <div class="portrait-shape" aria-hidden="true"></div>
@@ -379,7 +452,7 @@
           <article class="case-study reveal" id="case-status" data-case="status">
             <div class="case-topline"><span>01 / 03</span><span data-i18n="caseStatusType">СТОМАТОЛОГІЯ · ЗАПОРІЖЖЯ</span><span>WEB EXPERIENCE</span></div>
             <div class="case-main">
-              <div class="case-stage case-stage-status tilt-card" aria-label="Ілюстративне прев’ю дизайну Status Dent"><div class="stage-ambient" aria-hidden="true"></div>
+              <div class="case-stage case-stage-status tilt-card" aria-label="Ілюстративне прев’ю дизайну Status Dent"><div class="stage-ambient" aria-hidden="true"></div><div class="device-mode-control" role="group" aria-label="Перегляд адаптивного дизайну" data-v6-alt="devices"><button type="button" class="device-mode-btn is-active" data-device="desktop" aria-pressed="true"><svg aria-hidden="true" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg><span data-v6-label="desktop">ПК</span></button><button type="button" class="device-mode-btn" data-device="phone" aria-pressed="false"><svg aria-hidden="true" viewBox="0 0 24 24"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/></svg><span data-v6-label="phone">Телефон</span></button></div>
                 <div class="site-frame site-status"><div class="site-toolbar"><span class="browser-dots"><i></i><i></i><i></i></span><span>status-dent.zp.ua</span><span>↗</span></div><div class="mini-status-head"><b>STATUS<span>DENT</span></b><small>ПОСЛУГИ &nbsp;&nbsp; ОРТОДОНТІЯ &nbsp;&nbsp; ЦІНИ</small><em>ЗАПИСАТИСЯ ↗</em></div><div class="mini-status-body"><div><small>STOMATOLOGY / ZAPORIZHZHIA</small><h3>Стоматологія<br><i>повного циклу.</i></h3><p>Ортодонтія • Терапія • Хірургія</p><span>НАШІ ПОСЛУГИ ↗</span></div><div class="status-tooth">✳</div></div><div class="mini-status-footer"><b>06</b> НАПРЯМКІВ ЛІКУВАННЯ<span>↗</span></div></div>
                 <div class="stage-tag" data-i18n="stylizedPreview">ІЛЮСТРАТИВНЕ ПРЕВ’Ю</div>
               </div>
@@ -390,14 +463,14 @@
           <article class="case-study reveal" id="case-bella" data-case="bella">
             <div class="case-topline"><span>02 / 03</span><span data-i18n="caseBellaType">СТОМАТОЛОГІЯ · КРИВИЙ РІГ</span><span>WEB EXPERIENCE</span></div>
             <div class="case-main">
-              <div class="case-stage case-stage-bella tilt-card" aria-label="Ілюстративне прев’ю дизайну Bella Dent Clinic"><div class="stage-ambient" aria-hidden="true"></div><div class="site-frame site-bella"><div class="site-toolbar"><span class="browser-dots"><i></i><i></i><i></i></span><span>belladentclinik.kr.ua</span><span>↗</span></div><div class="bella-top"><strong>BELLA <span>DENT</span></strong><span>ЦЕНТР СУЧАСНОЇ СТОМАТОЛОГІЇ</span></div><div class="bella-screen"><small>PREMIUM DENTAL CARE</small><h3>BELLA<br>DENT<br><i>CLINIC</i></h3><p>Здоров'я. Технології. Турбота.</p><span>ЗАПИСАТИСЯ НА ПРИЙОМ →</span></div><div class="bella-circle"></div></div><div class="stage-tag" data-i18n="stylizedPreview">ІЛЮСТРАТИВНЕ ПРЕВ’Ю</div></div>
+              <div class="case-stage case-stage-bella tilt-card" aria-label="Ілюстративне прев’ю дизайну Bella Dent Clinic"><div class="stage-ambient" aria-hidden="true"></div><div class="device-mode-control" role="group" aria-label="Перегляд адаптивного дизайну" data-v6-alt="devices"><button type="button" class="device-mode-btn is-active" data-device="desktop" aria-pressed="true"><svg aria-hidden="true" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg><span data-v6-label="desktop">ПК</span></button><button type="button" class="device-mode-btn" data-device="phone" aria-pressed="false"><svg aria-hidden="true" viewBox="0 0 24 24"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/></svg><span data-v6-label="phone">Телефон</span></button></div><div class="site-frame site-bella"><div class="site-toolbar"><span class="browser-dots"><i></i><i></i><i></i></span><span>belladentclinik.kr.ua</span><span>↗</span></div><div class="bella-top"><strong>BELLA <span>DENT</span></strong><span>ЦЕНТР СУЧАСНОЇ СТОМАТОЛОГІЇ</span></div><div class="bella-screen"><small>PREMIUM DENTAL CARE</small><h3>BELLA<br>DENT<br><i>CLINIC</i></h3><p>Здоров'я. Технології. Турбота.</p><span>ЗАПИСАТИСЯ НА ПРИЙОМ →</span></div><div class="bella-circle"></div></div><div class="stage-tag" data-i18n="stylizedPreview">ІЛЮСТРАТИВНЕ ПРЕВ’Ю</div></div>
               <div class="case-content"><div class="case-number-row"><span class="case-chip">DENTAL / EDITORIAL</span><span>02</span></div><h3>Bella Dent<span class="case-title-dot">.</span></h3><p class="case-subtitle" data-i18n="bellaSubtitle">Виразна презентація клініки з великим обсягом контенту та акцентом на довіру.</p><div class="case-insight"><div><span data-i18n="caseTask">ЗАВДАННЯ</span><p data-i18n="bellaTask">Показати рівень клініки, спеціалістів і напрямів лікування в єдиному образі.</p></div><div><span data-i18n="caseSolution">РІШЕННЯ</span><p data-i18n="bellaSolution">Контрастна типографіка, окремий прайс, команда, сертифікати, кейси й відгуки.</p></div></div><div class="case-tags"><span data-i18n="tagServices">Послуги</span><span data-i18n="tagCases">Кейси</span><span data-i18n="tagReviews">Відгуки</span><span data-i18n="tagTeam">Команда</span></div><div class="case-actions"><button class="case-details-button" type="button" data-dialog="bella-dialog"><span data-i18n="caseAnalyze">Детальний розбір</span><span>↗</span></button><a href="https://belladentclinik.kr.ua/" rel="noopener noreferrer" target="_blank"><span data-i18n="viewLive">Відкрити сайт</span> ↗</a></div></div>
             </div>
           </article>
 
           <article class="case-study reveal" id="case-orange" data-case="orange">
             <div class="case-topline"><span>03 / 03</span><span data-i18n="caseOrangeType">BEAUTY STUDIO · ЗАПОРІЖЖЯ</span><span>WEB EXPERIENCE</span></div>
-            <div class="case-main"><div class="case-stage case-stage-orange tilt-card" aria-label="Ілюстративне прев’ю дизайну Orange Beauty Studio"><div class="stage-ambient" aria-hidden="true"></div><div class="site-frame site-orange"><div class="site-toolbar"><span class="browser-dots"><i></i><i></i><i></i></span><span>orange-beautystudio.zp.ua</span><span>↗</span></div><div class="orange-top"><strong>orange <span>beauty.</span></strong><span>ПОСЛУГИ &nbsp; ПРАЙС &nbsp; МАЙСТРИ</span></div><div class="orange-screen"><small>BEAUTY STUDIO / ZAPORIZHZHIA</small><h3>Ваша краса —<br><i>наше мистецтво.</i></h3><p>Простір, де кожна деталь має значення.</p><span>ЗАПИСАТИСЯ ↗</span></div><div class="orange-circle"></div></div><div class="stage-tag" data-i18n="stylizedPreview">ІЛЮСТРАТИВНЕ ПРЕВ’Ю</div></div>
+            <div class="case-main"><div class="case-stage case-stage-orange tilt-card" aria-label="Ілюстративне прев’ю дизайну Orange Beauty Studio"><div class="stage-ambient" aria-hidden="true"></div><div class="device-mode-control" role="group" aria-label="Перегляд адаптивного дизайну" data-v6-alt="devices"><button type="button" class="device-mode-btn is-active" data-device="desktop" aria-pressed="true"><svg aria-hidden="true" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg><span data-v6-label="desktop">ПК</span></button><button type="button" class="device-mode-btn" data-device="phone" aria-pressed="false"><svg aria-hidden="true" viewBox="0 0 24 24"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/></svg><span data-v6-label="phone">Телефон</span></button></div><div class="site-frame site-orange"><div class="site-toolbar"><span class="browser-dots"><i></i><i></i><i></i></span><span>orange-beautystudio.zp.ua</span><span>↗</span></div><div class="orange-top"><strong>orange <span>beauty.</span></strong><span>ПОСЛУГИ &nbsp; ПРАЙС &nbsp; МАЙСТРИ</span></div><div class="orange-screen"><small>BEAUTY STUDIO / ZAPORIZHZHIA</small><h3>Ваша краса —<br><i>наше мистецтво.</i></h3><p>Простір, де кожна деталь має значення.</p><span>ЗАПИСАТИСЯ ↗</span></div><div class="orange-circle"></div></div><div class="stage-tag" data-i18n="stylizedPreview">ІЛЮСТРАТИВНЕ ПРЕВ’Ю</div></div>
             <div class="case-content"><div class="case-number-row"><span class="case-chip">BEAUTY / BRAND</span><span>03</span></div><h3>Orange Beauty<span class="case-title-dot">.</span></h3><p class="case-subtitle" data-i18n="orangeSubtitle">Теплий digital-образ салону краси, у якому важливі емоції, майстри та роботи.</p><div class="case-insight"><div><span data-i18n="caseTask">ЗАВДАННЯ</span><p data-i18n="orangeTask">Представити різні послуги салону й допомогти клієнту визначитися з вибором.</p></div><div><span data-i18n="caseSolution">РІШЕННЯ</span><p data-i18n="orangeSolution">Каталог послуг, прозорий прайс, фотографії, майстри, відгуки та швидкий зв'язок.</p></div></div><div class="case-tags"><span data-i18n="tagPriceList">Ціни</span><span data-i18n="tagGallery">Галерея</span><span data-i18n="tagTeam">Команда</span><span data-i18n="tagContact">Контакти</span></div><div class="case-actions"><button class="case-details-button" type="button" data-dialog="orange-dialog"><span data-i18n="caseAnalyze">Детальний розбір</span><span>↗</span></button><a href="https://orange-beautystudio.zp.ua/" rel="noopener noreferrer" target="_blank"><span data-i18n="viewLive">Відкрити сайт</span> ↗</a></div></div></div>
           </article>
         </div>
@@ -549,6 +622,48 @@ panel.style.removeProperty('--focus-y');
 });
 })();
 
+</script>
+<script id="device-demo-v6">
+/* Progressive enhancement. Both preview modes are illustrative, not screenshots of a live site. */
+(()=>{
+  'use strict';
+  const copy={
+    uk:{scene:'КОД → ДИЗАЙН',built:'Ідея стає сайтом.',builtSub:'Дизайн, який працює на ваш бізнес.',desktop:'ПК',phone:'Телефон',code:'Демонстрація перетворення коду на готовий дизайн',devices:'Перегляд адаптивного дизайну'},
+    en:{scene:'CODE → DESIGN',built:'An idea becomes a site.',builtSub:'Thoughtful design for your business.',desktop:'Desktop',phone:'Mobile',code:'Animated illustration of code becoming a website design',devices:'Switch between desktop and mobile concept previews'},
+    ru:{scene:'КОД → ДИЗАЙН',built:'Идея становится сайтом.',builtSub:'Дизайн, который работает на бизнес.',desktop:'ПК',phone:'Телефон',code:'Анимация превращения кода в дизайн сайта',devices:'Переключить вид дизайна: компьютер или телефон'}
+  };
+  const localize=()=>{
+    const words=copy[document.documentElement.lang]||copy.uk;
+    document.querySelectorAll('[data-v6-label]').forEach(node=>{node.textContent=words[node.dataset.v6Label]||''});
+    document.querySelectorAll('[data-v6-alt]').forEach(node=>{node.setAttribute('aria-label',words[node.dataset.v6Alt]||'')});
+  };
+  localize();
+  new MutationObserver(localize).observe(document.documentElement,{attributes:true,attributeFilter:['lang']});
+  const reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  document.querySelectorAll('.case-study').forEach(caseCard=>{
+    const stage=caseCard.querySelector('.case-stage');
+    const frame=caseCard.querySelector('.site-frame');
+    if(!stage||!frame)return;
+    caseCard.querySelectorAll('[data-device]').forEach(button=>{
+      button.addEventListener('click',()=>{
+        const isPhone=button.dataset.device==='phone';
+        if(stage.classList.contains('is-phone')===isPhone)return;
+        stage.classList.toggle('is-phone',isPhone);
+        caseCard.querySelectorAll('[data-device]').forEach(item=>{
+          const active=item===button;
+          item.classList.toggle('is-active',active);
+          item.setAttribute('aria-pressed',String(active));
+        });
+        if(!reduced){
+          frame.classList.remove('device-changing');
+          void frame.offsetWidth;
+          frame.classList.add('device-changing');
+          frame.addEventListener('animationend',()=>frame.classList.remove('device-changing'),{once:true});
+        }
+      });
+    });
+  });
+})();
 </script>
 </body>
 </html>
