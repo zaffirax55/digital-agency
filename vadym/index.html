@@ -261,6 +261,68 @@
   .case-stage::before,.stage-ambient { animation:none; }
 }
 
+
+/* PORTFOLIO MOTION v5 — subtle, accessible animations */
+.case-study{--focus-x:50%;--focus-y:50%}
+.case-stage,.case-content{transition:box-shadow .45s ease,border-color .45s ease,background-color .45s ease}
+.case-stage{border:1px solid rgba(255,255,255,.17)}
+.case-content{isolation:isolate}
+.case-spotlight{position:absolute;inset:0;z-index:0;pointer-events:none;opacity:0;transition:opacity .38s ease;background:radial-gradient(440px circle at var(--focus-x) var(--focus-y),rgba(255,226,200,.20),transparent 62%)}
+.case-stage .case-spotlight{z-index:0;mix-blend-mode:screen}
+.case-content .case-spotlight{background:radial-gradient(400px circle at var(--focus-x) var(--focus-y),rgba(255,170,110,.12),transparent 65%)}
+.case-stage-status .case-spotlight{background:radial-gradient(420px circle at var(--focus-x) var(--focus-y),rgba(167,209,255,.20),transparent 65%)}
+.case-stage-orange .case-spotlight{background:radial-gradient(420px circle at var(--focus-x) var(--focus-y),rgba(255,239,196,.19),transparent 63%)}
+.case-content>:not(.case-spotlight){position:relative;z-index:1}
+.case-study .case-topline{position:relative}
+.case-study .case-topline::after{content:"";position:absolute;left:0;bottom:-1px;height:1px;width:100%;background:linear-gradient(90deg,var(--accent),rgba(255,170,110,.28),transparent);transform:scaleX(0);transform-origin:left;transition:transform 1.25s cubic-bezier(.15,.65,.2,1);pointer-events:none}
+.case-study.in-view .case-topline::after{transform:scaleX(1)}
+.case-details-button{position:relative;overflow:hidden;isolation:isolate}
+.case-details-button::after{content:"";position:absolute;inset:-45%;pointer-events:none;background:linear-gradient(100deg,transparent 35%,rgba(255,255,255,.5) 50%,transparent 65%);transform:translateX(-130%) rotate(-12deg);transition:transform .85s ease}
+.case-details-button:hover::after,.case-details-button:focus-visible::after{transform:translateX(130%) rotate(-12deg)}
+.case-tags span{transition:transform .24s ease,border-color .25s ease,background-color .25s ease}
+.hero-title em{background-image:linear-gradient(105deg,#fba86f 5%,#ffe3cb 44%,#fba86f 80%);background-size:230% 100%;background-clip:text;-webkit-background-clip:text;color:transparent;animation:v5-gold-drift 9s ease-in-out infinite alternate}
+@keyframes v5-gold-drift{from{background-position:0% 50%}to{background-position:100% 50%}}
+.portrait-card{transition:box-shadow .6s ease,transform .6s ease}
+@media (hover:hover) and (pointer:fine) and (min-width:801px){
+.case-stage:hover{border-color:rgba(255,222,201,.41);box-shadow:0 26px 86px rgba(0,0,0,.28),0 0 34px rgba(254,165,115,.10)}
+.case-stage-status:hover{box-shadow:0 26px 86px rgba(0,0,0,.28),0 0 34px rgba(133,172,255,.13)}
+.case-stage:hover .case-spotlight,.case-content:hover .case-spotlight{opacity:1}
+.case-content:hover{border-color:rgba(255,195,156,.40);box-shadow:0 25px 75px rgba(0,0,0,.28)}
+.case-tags span:hover{transform:translateY(-3px);border-color:rgba(255,184,139,.53);background:rgba(255,255,255,.07)}
+.hero-right:hover .portrait-card{box-shadow:0 44px 90px rgba(0,0,0,.6),0 0 36px rgba(255,172,123,.10)}
+}
+@media (prefers-reduced-motion:no-preference){
+.motion-enhanced .case-study .case-insight>div{opacity:0;transform:translateY(12px);transition:opacity .65s ease,transform .65s cubic-bezier(.2,.8,.25,1)}
+.motion-enhanced .case-study.in-view .case-insight>div{opacity:1;transform:translateY(0)}
+.motion-enhanced .case-study.in-view .case-insight>div:nth-child(1){transition-delay:.18s}
+.motion-enhanced .case-study.in-view .case-insight>div:nth-child(2){transition-delay:.29s}
+.motion-enhanced .case-study .case-tags span{opacity:0;transform:translateY(8px);transition:opacity .48s ease,transform .48s ease,border-color .25s ease,background .25s ease}
+.motion-enhanced .case-study.in-view .case-tags span{opacity:1;transform:translateY(0)}
+.motion-enhanced .case-study.in-view .case-tags span:nth-child(1){transition-delay:.27s}
+.motion-enhanced .case-study.in-view .case-tags span:nth-child(2){transition-delay:.34s}
+.motion-enhanced .case-study.in-view .case-tags span:nth-child(3){transition-delay:.41s}
+.motion-enhanced .case-study.in-view .case-tags span:nth-child(4){transition-delay:.48s}
+.case-dialog[open] .dialog-panel{animation:v5-dialog-enter .38s cubic-bezier(.16,.8,.26,1) both}
+.case-dialog[open]::backdrop{animation:v5-backdrop-in .32s ease both}
+}
+@keyframes v5-dialog-enter{from{opacity:0;transform:translateY(22px) scale(.985)}to{opacity:1;transform:translateY(0) scale(1)}}
+@keyframes v5-backdrop-in{from{opacity:0}to{opacity:1}}
+@media (max-width:800px){
+.hero-title em{animation-duration:15s}
+.case-stage,.case-content{box-shadow:none}
+.case-stage .case-spotlight,.case-content .case-spotlight{display:none}
+.case-study.in-view .case-topline::after{transition-duration:.6s}
+.case-details-button::after{display:none}
+.case-dialog[open] .dialog-panel{animation-duration:.28s}
+}
+@media (prefers-reduced-motion:reduce){
+.hero-title em{animation:none;background-image:none;color:var(--accent)}
+.case-details-button::after{display:none}
+.case-study .case-topline::after{transform:none}
+.case-spotlight{display:none}
+.motion-enhanced .case-study .case-insight>div,.motion-enhanced .case-study .case-tags span{opacity:1;transform:none}
+}
+
 </style>
 </head>
 <body>
@@ -443,6 +505,50 @@ window.addEventListener('scroll',()=>{if(!rafScheduled){rafScheduled=true;reques
 if('IntersectionObserver' in window){const sections=document.querySelectorAll('section[id]');const navlinks=document.querySelectorAll('.desktop-nav a');const navObserver=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){navlinks.forEach(a=>a.classList.toggle('is-current',a.getAttribute('href')==='#'+e.target.id))}})},{rootMargin:'-20% 0px -65% 0px'});sections.forEach(s=>navObserver.observe(s))}
 if(motionAllowed&&window.matchMedia('(hover:hover) and (pointer:fine)').matches){const glow=document.getElementById('cursor-glow');window.addEventListener('pointermove',e=>{glow.style.left=e.clientX+'px';glow.style.top=e.clientY+'px';glow.style.opacity='.8'},{passive:true});document.documentElement.addEventListener('mouseleave',()=>glow.style.opacity='0');document.querySelectorAll('.tilt-card').forEach(el=>{el.addEventListener('pointermove',e=>{if(window.innerWidth<800)return;const r=el.getBoundingClientRect();const x=((e.clientX-r.left)/r.width-.5)*2;const y=((e.clientY-r.top)/r.height-.5)*2;el.style.transform=`perspective(1200px) rotateY(${x*1.25}deg) rotateX(${-y*1.25}deg)`},{passive:true});el.addEventListener('pointerleave',()=>el.style.transform='')})}
 })();
+
+/* Motion v5: progressive enhancement with graceful touch + reduced-motion fallback. */
+(function(){
+const reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const cases=[...document.querySelectorAll('.case-study')];
+if(!reduced&&'IntersectionObserver' in window){
+document.documentElement.classList.add('motion-enhanced');
+const watch=new IntersectionObserver(entries=>{
+for(const entry of entries){if(entry.isIntersecting){entry.target.classList.add('in-view');watch.unobserve(entry.target);}}
+},{threshold:.025,rootMargin:'0px 0px 40px 0px'});
+cases.forEach(el=>{if(!el.classList.contains('in-view'))watch.observe(el)});
+}
+if(reduced||!window.matchMedia('(hover:hover) and (pointer:fine) and (min-width:801px)').matches)return;
+cases.forEach(card=>{
+card.querySelectorAll('.case-stage,.case-content').forEach(panel=>{
+const spotlight=document.createElement('span');
+spotlight.className='case-spotlight';
+spotlight.setAttribute('aria-hidden','true');
+panel.appendChild(spotlight);
+let frame=0;let point=null;
+panel.addEventListener('pointermove',event=>{
+if(event.pointerType==='touch')return;
+point={x:event.clientX,y:event.clientY};
+if(frame)return;
+frame=requestAnimationFrame(()=>{
+frame=0;
+if(!point)return;
+const box=panel.getBoundingClientRect();
+const x=Math.max(0,Math.min(100,(point.x-box.left)/box.width*100));
+const y=Math.max(0,Math.min(100,(point.y-box.top)/box.height*100));
+panel.style.setProperty('--focus-x',x+'%');
+panel.style.setProperty('--focus-y',y+'%');
+});
+},{passive:true});
+panel.addEventListener('pointerleave',()=>{
+if(frame)cancelAnimationFrame(frame);
+frame=0;point=null;
+panel.style.removeProperty('--focus-x');
+panel.style.removeProperty('--focus-y');
+},{passive:true});
+});
+});
+})();
+
 </script>
 </body>
 </html>
